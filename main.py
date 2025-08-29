@@ -1,11 +1,11 @@
 from fastapi import FastAPI
+import requests
 import xml.etree.ElementTree as ET
-from pathlib import Path
 
 app = FastAPI()
 
-# Путь к локальному XML
-XML_PATH = Path(__file__).parent / "data" / "TEST_retail_rocket.xml"
+# Ссылка на твой XML
+XML_URL = "https://1drv.ms/u/c/544933a476e5ac0f/EUDC8PJh0U9JhX_F0JRMOcgBqWi6IQaYtuXfvGThQTHtwg?e=5MZeOE"
 
 @app.get("/")
 def root():
@@ -15,10 +15,12 @@ def root():
 def get_product_info(product_id: str):
     """
     Возвращает информацию о товаре по его ID из тегов <offer>.
+    Работает, даже если <offer> находится вложенно.
     """
     try:
-        tree = ET.parse(XML_PATH)
-        root = tree.getroot()
+        response = requests.get(XML_URL)
+        response.raise_for_status()
+        root = ET.fromstring(response.content)
     except Exception as e:
         return {"ошибка": f"Не удалось загрузить XML: {e}"}
 
