@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 app = FastAPI()
 
 # Ссылка на твой XML
-XML_URL = "https://1drv.ms/u/c/544933a476e5ac0f/EUDC8PJh0U9JhX_F0JRMOcgBqWi6IQaYtuXfvGThQTHtwg?e=5MZeOE"
+XML_URL = "https://drive.google.com/uc?export=download&id=1-ycbD4OPkFn_DfYxJjtjCj4Qfefn8wgr"
 
 @app.get("/")
 def root():
