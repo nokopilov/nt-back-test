@@ -12,7 +12,7 @@ def root():
     return {"status": "ok", "message": "API работает"}
 
 @app.get("/get_product_by_id")
-def get_product_info(product_id: str):
+def get_product_by_id(product_id: str):
     """
     Возвращает информацию о товаре по его ID из тегов <offer>.
     Работает, даже если <offer> находится вложенно.
@@ -40,5 +40,3 @@ def get_product_info(product_id: str):
             }
 
     return {"ошибка": f"Товар с id={product_id} не найден"}
-
-
