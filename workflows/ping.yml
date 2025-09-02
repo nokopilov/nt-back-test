@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Curl to Render
-        run: curl -s https://ntn-test.onrender.com/ > /dev/null
+        run: curl -s https://ntn-test.onrender.com/get_product_by_id?product_id=832298 > /dev/null
