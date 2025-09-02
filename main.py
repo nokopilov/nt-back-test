@@ -40,3 +40,4 @@ def get_product_info(product_id: str):
             }
 
     return {"ошибка": f"Товар с id={product_id} не найден"}
+
