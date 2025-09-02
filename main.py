@@ -11,7 +11,7 @@ XML_URL = "https://raw.githubusercontent.com/nokopilov/nt-back-test/refs/heads/m
 def root():
     return {"status": "ok", "message": "API работает"}
 
-@app.get("/get_product_info")
+@app.get("/get_product_by_id")
 def get_product_info(product_id: str):
     """
     Возвращает информацию о товаре по его ID из тегов <offer>.
@@ -40,4 +40,5 @@ def get_product_info(product_id: str):
             }
 
     return {"ошибка": f"Товар с id={product_id} не найден"}
+
 
